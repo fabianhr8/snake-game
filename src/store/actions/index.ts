@@ -11,6 +11,9 @@ export const DOWN = 'DOWN';
 export const SET_DIS_DIRECTION = 'SET_DIS_DIRECTION';
 export const INCREASE_SNAKE = 'INCREASE_SNAKE';
 export const INCREMENT_SCORE = 'INCREMENT_SCORE';
+export const STOP_GAME = 'STOP_GAME';
+export const RESET_SCORE = 'RESET_SCORE';
+export const RESET = 'RESET';
 
 export const setDisDirection = (direction: string) => ({
   type: SET_DIS_DIRECTION,
@@ -26,6 +29,14 @@ export const increaseSnake = () => ({
   type: INCREASE_SNAKE
 });
 
-export const scoreUpdates = () => ({
-  type: INCREMENT_SCORE
+export const scoreUpdates = (type: string) => ({
+  type
+});
+
+export const stopGame = () => ({
+  type: STOP_GAME
+});
+
+export const resetGame = () => ({
+  type: RESET
 });

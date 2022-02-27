@@ -14,6 +14,8 @@ import {
   MOVE_LEFT,
   MOVE_RIGHT,
   MOVE_UP,
+  STOP_GAME,
+  RESET,
   ISnakeCoord,
   setDisDirection
 } from "../actions/index.ts";
@@ -24,7 +26,7 @@ export function* moveSaga(params: { type: string; payload: ISnakeCoord; }):
 	| PutEffect<{ type: string; payload: string }>
 	| CallEffect<true>
 	> {
-	while (true) {
+	while (params.type !== RESET && params.type !== STOP_GAME) {
 		//dispatches movement actions
 		yield put({
 			type: params.type.split("_")[1],

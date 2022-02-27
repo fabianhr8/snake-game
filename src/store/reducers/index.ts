@@ -5,7 +5,9 @@ import {
   UP,
   SET_DIS_DIRECTION,
   INCREASE_SNAKE,
-  INCREMENT_SCORE
+  INCREMENT_SCORE,
+  RESET,
+  RESET_SCORE
 } from "../actions/index.ts";
 
 interface ISnakeCoord {
@@ -71,18 +73,21 @@ const gameReducer = (state = globalState, action) => {
         score: state.score + 1,
       };
 
-    // case RESET:
-    //   return {
-    //     ...state,
-    //     snake: [
-    //       { x: 580, y: 300 },
-    //       { x: 560, y: 300 },
-    //       { x: 540, y: 300 },
-    //       { x: 520, y: 300 },
-    //       { x: 500, y: 300 },
-    //     ],
-    //     disallowedDirection: ""
-    //   };
+    case RESET:
+      return {
+        ...state,
+        snake: [
+          { x: 580, y: 300 },
+          { x: 560, y: 300 },
+          { x: 540, y: 300 },
+          { x: 520, y: 300 },
+          { x: 500, y: 300 },
+        ],
+        disallowedDirection: ''
+      };
+
+    case RESET_SCORE:
+      return { ...state, score: 0 };
 
     default:
       return state;
