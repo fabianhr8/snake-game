@@ -99,8 +99,8 @@ const CanvasBoard = ({ height, width }: ICanvasBoard) => {
     if (
       hasSnakeCollided(snake1, snake1[0]) ||
       snake1[0].x >= width ||
-      snake1[0].x <= 0 ||
-      snake1[0].y <= 0 ||
+      snake1[0].x < 0 ||
+      snake1[0].y < 0 ||
       snake1[0].y >= height
     ) {
       setGameEnded(true);
@@ -129,7 +129,7 @@ const CanvasBoard = ({ height, width }: ICanvasBoard) => {
       <canvas
         ref={canvasRef}
         style={{
-          border: '3px solid black',
+          border: `3px solid ${gameEnded ? "red" : "black"}`,
         }}
         height={height}
         width={width}

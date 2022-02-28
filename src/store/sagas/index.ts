@@ -48,13 +48,13 @@ export function* moveSaga(params: { type: string; payload: ISnakeCoord; }):
 				yield put(setDisDirection(UP));
 				break;
 		}
-		yield delay(100);
+		yield delay(80);
 	}
 }
 
 function* watcherSagas() {
 	yield takeLatest(
-		[MOVE_RIGHT, MOVE_LEFT, MOVE_UP, MOVE_DOWN],
+		[MOVE_RIGHT, MOVE_LEFT, MOVE_UP, MOVE_DOWN, RESET, STOP_GAME],
 		moveSaga
 	);
 };
