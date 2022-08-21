@@ -16,8 +16,9 @@ export const drawObject = (
   strokeStyle = "#146356"
 ) => {
   if (context) {
-    objectBody?.forEach((object: IObjectBody) => {
-      context.fillStyle = fillColor;
+    objectBody?.forEach((object: IObjectBody, index: number) => {
+      if (objectBody.length > 1 && index === 0) context.fillStyle = '#80B372';
+      else context.fillStyle = fillColor;
       context.strokeStyle = strokeStyle;
       context?.fillRect(object.x, object.y, 20, 20);
       context?.strokeRect(object.x, object.y, 20, 20);
